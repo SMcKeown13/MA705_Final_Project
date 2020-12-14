@@ -1,1 +1,1 @@
-web: gunicorn fruit_dashboard:server
+web: gunicorn Final_Project_App:server
