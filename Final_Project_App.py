@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Dec  5 02:37:35 2020
-
-@author: Sean
-"""
 import requests
 import json
 import pandas as pd
@@ -19,9 +13,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 
-
 #Preparing the play by play dataframe
-armyO = pd.read_csv('armyO.csv')
+url1 = 'https://raw.githubusercontent.com/SMcKeown13/MA705_Final_Project/main/armyO.csv'
+armyO = pd.read_csv(url1)
 armyO['lead_team'] = np.where(armyO['offense_score'] >= armyO['defense_score'], 'Lead', 'Losing')
 armyO['lead_team'] = np.where(armyO['offense_score'] == armyO['defense_score'], 'Tie', armyO['lead_team'])
 armyO['run_or_pass'] = np.where(armyO['play_type'].str.contains('Rush'), 'Run', 'None')
@@ -31,7 +25,8 @@ armyO['home_away'] = np.where(armyO['home'].str.contains('Army'), 'Home', 'Away'
 armyGameDf = pd.read_csv('ArmyGameDf.csv')
 
 #Preparing the game stats dataframe
-armyGameDf = pd.read_csv('ArmyGameDf.csv')
+url2 = 'https://raw.githubusercontent.com/SMcKeown13/MA705_Final_Project/main/ArmyGameDf.csv'
+armyGameDf = pd.read_csv(url2)
 armyGameDf = armyGameDf.loc[:, ~armyGameDf.columns.str.contains('^Unnamed')]
 time = armyGameDf.possessionTime.str.findall('\d+')
 time_of_Poss = []
@@ -47,7 +42,8 @@ armyGameDf['totalTime'] = time_of_Poss
 armyGamesPlayed = armyGameDf[~armyGameDf.homeAway.str.contains('No_Game')]
 
 #Preparing the ArmyDrive dataframe
-armyDriveO = pd.read_csv('armyDriveO.csv')
+url3 = 'https://raw.githubusercontent.com/SMcKeown13/MA705_Final_Project/main/armyDriveO.csv'
+armyDriveO = pd.read_csv(url3)
 minutes = armyDriveO['elapsed'].str.findall("'minutes': \d+")
 armyDriveO['elapsed_minutes'] = minutes
 seconds = armyDriveO['elapsed'].str.findall("'seconds': \d+")
@@ -73,7 +69,6 @@ elapsed_minutes = np.array(elap_min)
 elapsed_time = elapsed_seconds + elapsed_minutes
 armyDriveO['elapsed_time'] = elapsed_time
 armyDriveO['scoring'] = armyDriveO['scoring'].replace({True: 'TRUE', False: 'FALSE'})
-
 
 #Start of defining the app and its layout
 external_stylesheets = ['https://codepen.io/chriddyp/pen/dZVMbK.css']
@@ -336,7 +331,6 @@ def update_rush_pass_yards(years_chosen, weeks_chosen):
     
     return (bar_chart)
 
-
 @app.callback(
     Output('rush_pass_play_yards','figure'),
     Input('year_slider','value'),
@@ -412,7 +406,6 @@ def update_down_yards(years_chosen, weeks_chosen, lead_chosen, location_chosen, 
     
     return (bar_chart)
 
-
 @app.callback(
     Output('down_selection','figure'),
     Input('year_slider','value'),
@@ -452,7 +445,6 @@ def update_down_selection(years_chosen, weeks_chosen, lead_chosen, location_chos
     yaxis_title="# of plays run")
     
     return (bar_chart)
-
 
 
 @app.callback(
@@ -548,7 +540,6 @@ def update_drive_time(years_chosen, weeks_chosen, scoring_chosen, quarter_chosen
     
     return (bar_chart)
 
-
 @app.callback(
     Output('drive_play','figure'),
     Input('year_slider','value'),
@@ -569,7 +560,6 @@ def update_drive_play(years_chosen, weeks_chosen, scoring_chosen, quarter_chosen
     
     bar_chart.add_trace(go.Bar(name='elapsed_time', x=dff['Year'], y=dff['elapsed_time'], 
            marker_color='rgb(212,175,55)'))
-
 
     bar_chart.update_xaxes(type='category')
 
@@ -604,8 +594,5 @@ def update_drive_play(years_chosen, weeks_chosen, scoring_chosen, quarter_chosen
 
 
 
-
 if __name__ == '__main__':
     app.run_server(debug=True)
-    
-    
