@@ -79,6 +79,7 @@ armyDriveO['scoring'] = armyDriveO['scoring'].replace({True: 'TRUE', False: 'FAL
 external_stylesheets = ['https://codepen.io/chriddyp/pen/dZVMbK.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
+server = app.server
 
 app.layout = html.Div([
         html.Div([html.H1("Army Football Offense under Jeff Monken (2014-2020)", style={'text-align':'center'}),
