@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import re
 
+import dash_table
 import plotly.graph_objects as go
 import dash
 import dash_core_components as dcc
@@ -36,6 +37,12 @@ for i in range(len(time)):
         time_of_Poss.append(time[i])
 armyGameDf['totalTime'] = time_of_Poss
 armyGamesPlayed = armyGameDf[~armyGameDf.homeAway.str.contains('No_Game')]
+col_name="year"
+first_col = armyGamesPlayed.pop(col_name)
+armyGamesPlayed.insert(0, col_name, first_col)
+col_name1="week"
+sec_col = armyGamesPlayed.pop(col_name1)
+armyGamesPlayed.insert(1, col_name1, sec_col)
 
 #Preparing the ArmyDrive dataframe
 url3 = 'https://raw.githubusercontent.com/SMcKeown13/MA705_Final_Project/main/armyDriveO.csv'
@@ -305,6 +312,14 @@ app.layout = html.Div([
         html.Div([
             dcc.Graph(id='drive_play')
         ], className="five columns"),
+        html.Div([html.H3('Army Game Stats Data'),
+                    dash_table.DataTable(
+                        id='table',
+                        columns=[{"name": i, "id": i} for i in armyGamesPlayed.columns],
+                        data=armyGamesPlayed.to_dict('records'),
+                        page_size=10
+                    )
+                ], className="twelve columns"),
     ], className="row")
 ]
 )
