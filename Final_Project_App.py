@@ -443,7 +443,7 @@ def update_down_yards(years_chosen, weeks_chosen, lead_chosen, location_chosen, 
     
     bar_chart.update_layout(barmode='group')
     
-    bar_chart.update_layout(title='Down Performance Under Jeff Monken', xaxis_title="Down",
+    bar_chart.update_layout(title='Performance by Down', xaxis_title="Down",
     yaxis_title="Yards")
     
     return (bar_chart)
@@ -495,7 +495,7 @@ def update_down_selection(years_chosen, weeks_chosen, lead_chosen, location_chos
     
     bar_chart.update_layout(barmode='stack')
     
-    bar_chart.update_layout(title='Play Selection by down Under Jeff Monken', xaxis_title="Down",
+    bar_chart.update_layout(title='Play Selection by down', xaxis_title="Down",
     yaxis_title="# of plays run")
     
     return (bar_chart)
