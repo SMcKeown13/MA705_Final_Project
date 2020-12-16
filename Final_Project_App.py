@@ -74,6 +74,26 @@ server = app.server
 
 app.layout = html.Div([
         html.Div([html.H1("Army Football Offense under Jeff Monken (2014-2020)", style={'text-align':'center'}),
+                html.Div([dcc.Markdown('''
+                                ##### BACKGROUND: 
+                                Jeff Monken and Army football are unique in the style of
+                                offense they run. They run a style of offense called the 
+                                triple-option, which focuses on a few key factors for success.
+                                Of those measurable by statistics, they focus on: \n
+                                * running the football with effeciency (the goal is to gain 3-4 yards per play with the idea that doing that four times is a first down)
+                                * no turnovers
+                                * long possessions/drives \n
+                                The idea behind these concepts
+                                is that by holding the football on offense you can maximize your own opportunities to score
+                                while giving your opponents the smallest opportunity forcing them to be effecient
+                                with the possessions they have. In this way, Jeff Monken has been able to turn
+                                a team that lacks the elite talent of large programs into a winning team during his 
+                                tenure at West Point. In the below charts, you can see how unique Army is in both its
+                                play-calling and its effeciency. These charts below demonstrate the approach Army takes
+                                in its "fight on to victory, for that's the fearless Army way". GO ARMY! BEAT NAVY!
+                                ''')
+                    ],className="twelve columns",
+                    ),
                   html.H6("Please select the years you would like to look at.", style={'text-align':'center'}),
                        dcc.RangeSlider( id = 'year_slider',
                             min=armyGamesPlayed['year'].min(),
