@@ -388,15 +388,15 @@ def update_rush_pass_play_yards(years_chosen, weeks_chosen):
     bar_chart.update_layout(title='Pass v. Rush Yds./Play', xaxis_title="Year",
     yaxis_title="Yards per Play")
     
-#    bar_chart.add_layout_image(
-#        dict(
-#            source="ARMYLOGO.png",
-#            xref="paper", yref="paper",
-#            x=1, y=1.05,
-#            sizex=0.2, sizey=0.2,
-#            xanchor="right", yanchor="bottom"
-#        )
-#)
+    bar_chart.add_layout_image(
+        dict(
+            source="https://raw.githubusercontent.com/SMcKeown13/MA705_Final_Project/main/Army_West_Point_logo.png",
+            xref="paper", yref="paper",
+            x=1, y=1.05,
+            sizex=0.2, sizey=0.2,
+            xanchor="right", yanchor="bottom"
+        )
+)
     
     return (bar_chart)
   
@@ -427,6 +427,17 @@ def update_down_yards(years_chosen, weeks_chosen, lead_chosen, location_chosen, 
            marker_color='rgb(0,0,0)'))
     bar_chart.add_trace(go.Bar(name='yards_gained', x=dff["down"], y=dff['yards_gained'], 
            marker_color='rgb(212,175,55)'))
+
+    bar_chart.add_layout_image(
+        dict(
+            source="https://raw.githubusercontent.com/SMcKeown13/MA705_Final_Project/main/Army_West_Point_logo.png",
+            xref="paper", yref="paper",
+            x=1, y=1.05,
+            sizex=0.2, sizey=0.2,
+            xanchor="right", yanchor="bottom"
+        )
+)
+
 
     bar_chart.update_xaxes(type='category')
     
@@ -467,6 +478,18 @@ def update_down_selection(years_chosen, weeks_chosen, lead_chosen, location_chos
            marker_color='rgb(0,0,0)'))
     bar_chart.add_trace(go.Bar(name='# of pass plays', x=dff_pass_plays["down"], y=dff_pass_plays['run_or_pass'], 
            marker_color='rgb(212,175,55)'))
+
+    bar_chart.add_layout_image(
+        dict(
+            source="https://raw.githubusercontent.com/SMcKeown13/MA705_Final_Project/main/Army_West_Point_logo.png",
+            xref="paper", yref="paper",
+            x=1, y=1.05,
+            sizex=0.2, sizey=0.2,
+            xanchor="right", yanchor="bottom"
+        )
+)
+
+
 
     bar_chart.update_xaxes(type='category')
     
@@ -559,15 +582,15 @@ def update_drive_time(years_chosen, weeks_chosen, scoring_chosen, quarter_chosen
     bar_chart.update_layout(title='# of Plays per Drive', xaxis_title="Year",
     yaxis_title="# of Play")
     
-#    bar_chart.add_layout_image(
-#        dict(
-#            source="ARMYLOGO.png",
-#            xref="paper", yref="paper",
-#            x=1, y=1.05,
-#            sizex=0.2, sizey=0.2,
-#            xanchor="right", yanchor="bottom"
-#        )
-#)
+    bar_chart.add_layout_image(
+        dict(
+            source="https://raw.githubusercontent.com/SMcKeown13/MA705_Final_Project/main/Army_West_Point_logo.png",
+            xref="paper", yref="paper",
+            x=1, y=1.05,
+            sizex=0.2, sizey=0.2,
+            xanchor="right", yanchor="bottom"
+        )
+)
     
     return (bar_chart)
 
@@ -607,15 +630,15 @@ def update_drive_play(years_chosen, weeks_chosen, scoring_chosen, quarter_chosen
     )
 )
     
-#    bar_chart.add_layout_image(
-#        dict(
-#            source="ARMYLOGO.png",
-#            xref="paper", yref="paper",
-#            x=1, y=1.05,
-#            sizex=0.2, sizey=0.2,
-#            xanchor="right", yanchor="bottom"
-#        )
-#)
+    bar_chart.add_layout_image(
+        dict(
+            source="https://raw.githubusercontent.com/SMcKeown13/MA705_Final_Project/main/Army_West_Point_logo.png",
+            xref="paper", yref="paper",
+            x=1, y=1.05,
+            sizex=0.2, sizey=0.2,
+            xanchor="right", yanchor="bottom"
+        )
+)
     
     return (bar_chart)
 
