@@ -344,15 +344,15 @@ def update_rush_pass_yards(years_chosen, weeks_chosen):
                                name='netPassingYards', marker_color='rgb(212,175,55)'))
 
     
-#    bar_chart.add_layout_image(
-#        dict(
-#            source="https://www.logolynx.com/images/logolynx/2d/2d1d83a93e3977179a56c9d865c8793b.png",
-#            xref="paper", yref="paper",
-#            x=1, y=1.05,
-#            sizex=0.2, sizey=0.2,
-#            xanchor="right", yanchor="bottom"
-#        )
-#)
+    bar_chart.add_layout_image(
+        dict(
+            source="https://raw.githubusercontent.com/SMcKeown13/MA705_Final_Project/main/Army_West_Point_logo.png",
+            xref="paper", yref="paper",
+            x=1, y=1.05,
+            sizex=0.2, sizey=0.2,
+            xanchor="right", yanchor="bottom"
+        )
+)
     bar_chart.update_xaxes(type='category')
     
     bar_chart.update_layout(barmode='stack')
